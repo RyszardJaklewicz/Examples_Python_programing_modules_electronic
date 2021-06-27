@@ -11,13 +11,10 @@ import atexit
 import signal
 import subprocess
 
-
-
 #TRYB GPIO BCM
 GPIO.setmode(GPIO.BCM)
 
 #Piny GPIO ustawiamy w tryb WYJSCIA
-
 GPIO.setup(2, GPIO.OUT)
 GPIO.setup(3, GPIO.OUT)
 GPIO.setup(4, GPIO.OUT)
@@ -40,16 +37,10 @@ def program_exit():
     print " "
 
 #db = MySQLdb.connect("127.0.0.1", "root", "era123zx", "pomiary_elektryczne")
-
 licznik=0
 while True:
-
     licznik=licznik+1
-
-    
-  
     ############### MYSQL ######################################################################
-
     #Tabela w ktørej zapisane sa aktualne parametry zwiazane z domem tabela aktualizowana co 2 sekundy
     #czyli jesli zmienila sie temperatura na jakims czujniku to jest ona zapisywana do tabeli co 2 sekundy
 
@@ -85,22 +76,11 @@ while True:
     # rec[29] = temperatura_czujnik_8
     # rec[30] = temperatura_czujnik_9
     # rec[31] = temperatura_czujnik_10
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-
-    
 
     db = MySQLdb.connect("127.0.0.1", "root", "era123zx", "pomiary_elektryczne")    
     cursor = db.cursor()
 
     db.commit()
-
-
     cursor.execute("SELECT * FROM stan_biezacy_domu WHERE stan_biezacy_id = 1")
     
     for rec in cursor.fetchall():
@@ -125,23 +105,15 @@ while True:
             GPIO.output(22, GPIO.LOW)
             print("Wylacz odbiornik nr")
 
-
-
-
         cursor.close()
 
         print("\n--------------------------------------------\n")
 
-    
-
-
     ############## END MYSQL ####################################################################
         
     time.sleep(3)
-
     #if(licznik==6):
         #sys.exit(0)
-     
     if CONTROL_C: sys.exit(0)
 exit (0)
 

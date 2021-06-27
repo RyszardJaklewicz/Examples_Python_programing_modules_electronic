@@ -1,6 +1,26 @@
 
 
-https://github.com/RyszardJaklewicz/Examples_Python_programing_modules_electronic.git
+
+git remote rm origin
+
+git remote add origin https://github.com/RyszardJaklewicz/Examples_Python_programing_modules_electronic.git
+
+
+
+git origin https://github.com/your/Examples_Python_programing_modules_electronic.git (fetch)
+
+git origin https://github.com/your/Examples_Python_programing_modules_electronic.git (push)
+
+
+W razie bledu 
+git pull
 
 
 git push origin master
+
+
+git push --set-upstream origin
+
+git push --set-upstream origin master
+
+rm -f ./.git/index.lock

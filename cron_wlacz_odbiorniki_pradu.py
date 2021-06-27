@@ -56,10 +56,7 @@ def program_exit():
 licznik=0
 while True:
 
-    
-
     licznik=licznik+1
-
     ############### MYSQL ######################################################################
 
     #Tabela w ktørej zapisane sa aktualne parametry zwiazane z domem tabela aktualizowana co 2 sekundy
@@ -105,16 +102,7 @@ while True:
     # rec[29] = temperatura_czujnik_8
     # rec[30] = temperatura_czujnik_9
     # rec[31] = temperatura_czujnik_10
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-
-
-
+    
     db = MySQLdb.connect("127.0.0.1", "root", "era123zx", "pomiary_elektryczne")
     cursor = db.cursor()
    
@@ -133,8 +121,6 @@ while True:
         if(rec[1]=='N'):
             GPIO.output(2, GPIO.LOW)
             print("Wylacz odbiornik nr 1")
-
-
         #Wlaczenie i wylaczenie odbiornika nr 2 - odbiornik sterowany sygnalem z pinu GPIO 3
 
         if(rec[2]=='T'):
@@ -145,7 +131,6 @@ while True:
             GPIO.output(3, GPIO.LOW)
             print("Wylacz odbiornik nr 2")
 
-
         #Wlaczenie i wylaczenie odbiornika nr 3 - odbiornik sterowany sygnalem z pinu GPIO 4
 
         if(rec[3]=='T'):
@@ -155,7 +140,6 @@ while True:
         if(rec[3]=='N'):
             GPIO.output(4, GPIO.LOW)
             print("Wylacz odbiornik nr 3")
-
 
         #Wlaczenie i wylaczenie odbiornika nr 4 - odbiornik sterowany sygnalem z pinu GPIO 14
 
@@ -178,10 +162,7 @@ while True:
             GPIO.output(15, GPIO.LOW)
             print("Wylacz odbiornik nr 5")
 
-
-
         #Wlaczenie i wylaczenie odbiornika nr 6
-
 
         if 1==2:
             if(rec[6]=='T'):
@@ -202,7 +183,6 @@ while True:
             if(rec[7]=='N'):
                 GPIO.output(22, GPIO.LOW)
                 print("Wylacz odbiornik nr 7")
-
 
         cursor.close()
 

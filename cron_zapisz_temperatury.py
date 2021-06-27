@@ -11,9 +11,6 @@ import atexit
 import signal
 import subprocess
 
-
-
-
 #użycie numeracji pinów według BMC
 #GPIO.setmode(GPIO.BCM)
 
@@ -38,20 +35,14 @@ def program_exit():
 db = MySQLdb.connect("127.0.0.1", "root", "era123zx", "pomiary_elektryczne")
 #cursor = db.cursor()
 
-
 print("\nPID:\n")
-
 mypid = os.getpid()
-
-
 print(mypid)
-
 
 licznik=0
 while True:
     
     licznik=licznik+1
-    
     zawartosc_pliku_temperatura_czujnik_1 = ''
     zawartosc_pliku_temperatura_czujnik_2 = ''
     zawartosc_pliku_temperatura_czujnik_3 = ''
@@ -78,8 +69,6 @@ while True:
     plik_temperatura_czujnik_2 = open('/sys/bus/w1/devices/28-0000062395b7/w1_slave') #otwarcie pliku
     plik_temperatura_czujnik_3 = open('/sys/bus/w1/devices/28-000005ceb2ef/w1_slave') #otwarcie pliku
     plik_temperatura_czujnik_4 = open('/sys/bus/w1/devices/28-000005ce60b2/w1_slave') #otwarcie pliku
-
-    
 
     zawartosc_pliku_temperatura_czujnik_1 = plik_temperatura_czujnik_1.read()
     zawartosc_pliku_temperatura_czujnik_2 = plik_temperatura_czujnik_2.read()
@@ -121,12 +110,9 @@ while True:
     print "Temperatura czujnik 3", temperatura_czujnik_3, " stopni C\n\n",
     print "Temperatura czujnik 4", temperatura_czujnik_4, " stopni C\n\n",
     
-
     data_godzina =  time.strftime("%Y-%m-%d %H:%M:%S")
     
-
     zapisz_temperatury=1
-
     if(info_blad_czujnik_1!='YES'):
         zapisz_temperatury=0
     if(info_blad_czujnik_2!='YES'):
@@ -158,7 +144,6 @@ while True:
             """,(temperatura_czujnik_1, temperatura_czujnik_2, temperatura_czujnik_3, temperatura_czujnik_4, '1'))
         db.commit()
 
-        
         sql = "INSERT INTO pomiary_temperatura_archiwum(temperatura_czujnik_1, \
                   temperatura_czujnik_2, temperatura_czujnik_3, temperatura_czujnik_4, data_godzina) \
                   VALUES ('%s', '%s', '%s', '%s', '%s')" % \
@@ -167,24 +152,16 @@ while True:
         db.commit()
         cursor.close()
     
-    
-
     print("\n--------------------------------------------\n")
-
-    
-
 
     ############## END MYSQL ####################################################################
         
     time.sleep(3)
-
     #if(licznik==6):
         #sys.exit(0)
 
-    
     if CONTROL_C: sys.exit(0)
     #exit(0)
-
 
 GPIO.cleanup()
 

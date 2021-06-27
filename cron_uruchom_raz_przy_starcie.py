@@ -11,13 +11,10 @@ import atexit
 import signal
 import subprocess
 
-
-
 #TRYB GPIO BCM
 GPIO.setmode(GPIO.BCM)
 
 #Piny GPIO ustawiamy w tryb WYJSCIA
-
 GPIO.setup(2, GPIO.OUT)
 GPIO.setup(3, GPIO.OUT)
 GPIO.setup(4, GPIO.OUT)
@@ -27,7 +24,6 @@ GPIO.setup(17, GPIO.OUT)
 #GPIO.setup(18, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
 GPIO.setup(23, GPIO.OUT)
-
 GPIO.output(2, GPIO.LOW)
 GPIO.output(3, GPIO.LOW)
 GPIO.output(4, GPIO.LOW)

@@ -72,8 +72,6 @@ while True:
         if(rec[1]=='N'):
             GPIO.output(2, GPIO.LOW)
             print("Wylacz odbiornik nr 1")
-
-
         #Wlaczenie i wylaczenie odbiornika nr 2 - odbiornik sterowany sygnalem z pinu GPIO 3
 
         if(rec[2]=='T'):
@@ -95,7 +93,6 @@ while True:
             GPIO.output(4, GPIO.LOW)
             print("Wylacz odbiornik nr 3")
 
-
         #Wlaczenie i wylaczenie odbiornika nr 4 - odbiornik sterowany sygnalem z pinu GPIO 14
 
         if(rec[4]=='T'):
@@ -105,7 +102,6 @@ while True:
         if(rec[4]=='N'):
             GPIO.output(14, GPIO.LOW)
             print("Wylacz odbiornik nr 4")
-
 
         #Wlaczenie i wylaczenie odbiornika nr 5
 
@@ -117,8 +113,6 @@ while True:
             GPIO.output(15, GPIO.LOW)
             print("Wylacz odbiornik nr 5")
 
-
-
         #Wlaczenie i wylaczenie odbiornika nr 6
 
         if(rec[6]=='T'):
@@ -128,8 +122,6 @@ while True:
         if(rec[6]=='N'):
             GPIO.output(17, GPIO.LOW)
             print("Wylacz odbiornik nr 6")
-
-
 
         #Wlaczenie i wylaczenie odbiornika nr 7
 
@@ -143,9 +135,6 @@ while True:
 
 
     print("\n--------------------------------------------\n")
-
-    
-
 
     ############## END MYSQL ####################################################################
         
